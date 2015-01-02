@@ -1,4 +1,4 @@
-Java webapp protected by the Spring Security CAS client
+Java webapp protected by the Spring Security CAS client (https://github.com/spring-projects/spring-security)
 ==
 
 ![English](https://www.casinthecloud.com/img/other/flag_en.png)
