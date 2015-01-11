@@ -1,5 +1,5 @@
 <%@page import="org.springframework.security.cas.authentication.CasAuthenticationToken"%>
-<%@page import="org.jasig.cas.client.validation.AssertionImpl"%>
+<%@page import="org.jasig.cas.client.authentication.AttributePrincipal"%>
 <%@page import="org.springframework.security.core.context.SecurityContextHolder"%>
 <%@ page pageEncoding="UTF-8" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
@@ -20,12 +20,12 @@
 			<li><a href="https://freeuse1.casinthecloud.com/leleujgithub/logout?service=http://localhost:8080">Call the CAS logout</a></li>
 		</ul>
 		<h3>
-			<p>principal: <sec:authentication property="principal" /></p>
 			<%
-				CasAuthenticationToken casToken = (CasAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
-				AssertionImpl assertion = (AssertionImpl) casToken.getAssertion();
+				CasAuthenticationToken casAuthenticationToken = (CasAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
+				AttributePrincipal principal = casAuthenticationToken.getAssertion().getPrincipal();
 			%>
-			<p>attributes: <%=assertion.getPrincipal().getAttributes()%></p>
+			<p>username: <%=principal.getName()%>
+			<p>attributes: <%=principal.getAttributes()%></p>
 		</h3>
 	</div>
 </body>
