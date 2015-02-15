@@ -23,9 +23,9 @@
 
 	<bean id="casEntryPoint"
 		class="org.springframework.security.cas.web.CasAuthenticationEntryPoint">
-		<!-- Change with your own CAS in the cloud server -->
+		<!-- Change with your own CAS server -->
 		<property name="loginUrl"
-			value="https://freeuse1.casinthecloud.com/leleujgithub/login" />
+			value="http://localhost:8888/cas/login" />
 		<property name="serviceProperties" ref="serviceProperties" />
 
 	</bean>
@@ -50,9 +50,9 @@
 		<property name="serviceProperties" ref="serviceProperties" />
 		<property name="ticketValidator">
 			<bean class="org.jasig.cas.client.validation.Cas20ServiceTicketValidator">
-				<!-- Change with your own CAS in the cloud server -->
+				<!-- Change with your own CAS server -->
 				<constructor-arg index="0"
-					value="https://freeuse1.casinthecloud.com/leleujgithub/p3/" />
+					value="http://localhost:8888/cas/p3/" />
 			</bean>
 		</property>
 		<property name="key" value="an_id_for_this_auth_provider_only" />
